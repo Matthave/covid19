@@ -83,14 +83,6 @@ class App extends React.Component {
     countires.forEach((country) => {
       this.critical += country.critical
     })
-
-    // countires.forEach((country) => {
-    //   this.casasPerMillion += country.casesPerOneMillion
-    // })
-
-    // countires.forEach((country) => {
-    //   this.deathsPerMillion += country.deathsPerOneMillion
-    // })
   }
 
   scroll = () => {
