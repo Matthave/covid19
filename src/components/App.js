@@ -142,22 +142,22 @@ class App extends React.Component {
           <tbody>
             <tr className='wolrdTr'>
               <th>World</th>
-              <th>{this.state.confirmed}</th>
-              <th>{this.dayCases}</th>
-              <th>{this.state.deaths}</th>
-              <th>{this.dayDeaths}</th>
-              <th>{this.state.recovered}</th>
-              <th>{this.active}</th>
-              <th>{this.critical}</th>
-              <th>{Math.floor(this.state.confirmed / 7774)}</th>
-              <th>{Math.floor(this.state.deaths / 7774)}</th>
+              <th>{this.state.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{`+${this.dayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
+              <th>{this.state.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{`+${this.dayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
+              <th>{this.state.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{this.active.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{this.critical.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{Math.floor(this.state.confirmed / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{Math.floor(this.state.deaths / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
               <th>Jan 10</th>
             </tr>
             {country}
           </tbody>
 
         </table>
-        <footer className='footer' style={this.state.foooterOnBottom ? { backgroundColor: 'black', color: 'white' } : {}}>
+        <footer className='footer' style={this.state.foooterOnBottom ? { backgroundColor: '#111', color: 'white' } : {}}>
           <h2 className='footer__name'>Created by MattHave</h2>
           <img src={logo} alt="MattHave's Logo" className="footer__logo" />
         </footer>
