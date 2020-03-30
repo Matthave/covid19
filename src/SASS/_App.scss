@@ -1,0 +1,31 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: Helvetica, sans-serif;
+}
+
+.App{
+    position: relative;
+    max-width:1200px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-track{
+    background:#ccc;
+}
+::-webkit-scrollbar-thumb{
+    background: #222;
+    border-radius: 7.5px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #000;
+}
