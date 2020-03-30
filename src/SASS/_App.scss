@@ -14,10 +14,11 @@ html{
     max-width:1200px;
     margin: 0 auto;
     margin-bottom: 42px;
+    padding-left: 50px;
 }
 
 ::-webkit-scrollbar{
-    width: 12px;
+    width: 5px;
 }
 ::-webkit-scrollbar-track{
     background:#ccc;

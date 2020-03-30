@@ -1,5 +1,10 @@
 import React from 'react';
 import Country from './Country';
+import Navigation from './Navigation';
+import Global from './Global';
+import DetailsCountry from './DetailsCountry';
+import Table from './Table';
+import { Route, Switch, HashRouter, } from 'react-router-dom';
 import logo from '../IMG/NewLogoSmallTransparent.png';
 import '../css/style.css';
 
@@ -12,14 +17,13 @@ class App extends React.Component {
     todayCases: '',
     countries: '',
     foooterOnBottom: false,
+    valueInput: '',
   }
 
   dayCases = 0;
   dayDeaths = 0;
   active = 0;
   critical = 0;
-  casasPerMillion = 0;
-  deathsPerMillion = 0;
 
   componentDidMount() {
     fetch("https://covid-19-data.p.rapidapi.com/totals", {
@@ -61,8 +65,6 @@ class App extends React.Component {
       .catch(err => {
         console.log(err);
       });
-
-    window.addEventListener('scroll', this.scroll)
   }
 
   todayCases = (data) => {
@@ -85,25 +87,22 @@ class App extends React.Component {
     })
   }
 
-  scroll = () => {
-    const scrollHeight = window.scrollY;
-
-    if (scrollHeight + window.innerHeight > document.body.clientHeight) {
-
-      this.setState({
-        foooterOnBottom: true,
-      })
-    } else {
-      this.setState({
-        foooterOnBottom: false,
-      })
-    }
+  onChangeInput = (event) => {
+    this.setState({
+      valueInput: event.target.value
+    })
   }
 
-
   render() {
-    const countries = [...this.state.countries]
-    const country = countries.map((country) => (
+    const { countries, valueInput, confirmed, deaths, recovered, } = this.state;
+
+    const countriesArr = [...this.state.countries];
+
+    const newCountries = countriesArr.filter((country) => (
+      (country.country.toUpperCase()).includes(valueInput.toUpperCase())
+    ))
+
+    const country = countriesArr.map((country) => (
       < Country
         key={country.country}
         country={country.country}
@@ -120,48 +119,37 @@ class App extends React.Component {
       />
     ))
     return (
-      <div className="App">
-        <h1 className='title'>covid-19 coronavirus pandemic statistics</h1>
-        <table className='table'>
-          <thead className='thead'>
-            <tr className='thead__tr'>
-              <th className='thead__th'>Country</th>
-              <th className='thead__th'>Confirmed Cases</th>
-              <th className='thead__th'>New Cases</th>
-              <th className='thead__th'>Total Deaths</th>
-              <th className='thead__th'>New Deaths</th>
-              <th className='thead__th'>Total Revocered</th>
-              <th className='thead__th'>Active Cases</th>
-              <th className='thead__th'>Critical</th>
-              <th className='thead__th'>Total Cases/ 1M</th>
-              <th className='thead__th'>Deaths/ 1M</th>
-              <th className='thead__th'>First Case</th>
-            </tr>
-          </thead>
+      <HashRouter>
+        <div className="App">
+          <Navigation />
+          <Switch>
+            <Route exact path='/' render={() => <Global
+              confirmed={confirmed}
+              deaths={deaths}
+              recovered={recovered} />}>
+            </Route>
 
-          <tbody>
-            <tr className='wolrdTr'>
-              <th>World</th>
-              <th>{this.state.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{`+${this.dayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
-              <th>{this.state.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{`+${this.dayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
-              <th>{this.state.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{this.active.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{this.critical.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{Math.floor(this.state.confirmed / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{Math.floor(this.state.deaths / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>Jan 10</th>
-            </tr>
-            {country}
-          </tbody>
+            <Route path='/countries' render={() => <DetailsCountry
+              countries={countries}
+              newCountries={newCountries}
+              onChangeInput={this.onChangeInput}
+              valueInput={valueInput}
+            />}>
+            </Route>
 
-        </table>
-        <footer className='footer' style={this.state.foooterOnBottom ? { backgroundColor: '#111', color: 'white' } : {}}>
-          <h2 className='footer__name'>Created by MattHave</h2>
-          <img src={logo} alt="MattHave's Logo" className="footer__logo" />
-        </footer>
-      </div>
+            <Route path='/table' render={() => <Table
+              country={country}
+              confirmed={confirmed}
+              dayCases={this.dayCases}
+              deaths={deaths}
+              dayDeaths={this.dayDeaths}
+              recovered={recovered}
+              active={this.active}
+              critical={this.critical} />} >
+            </Route>
+          </Switch>
+        </div>
+      </HashRouter>
     );
   }
 }

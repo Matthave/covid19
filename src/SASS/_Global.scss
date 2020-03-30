@@ -1,0 +1,48 @@
+.global{
+    &__sections{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        min-height: 75vh;
+    }
+    &__section{
+        width:90%;
+        height: 150px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        background-color: #f5f5f5;
+        box-shadow: 0px 0px 3px 0px #555;
+    }
+    &__title{
+        font-size: 1.4rem;
+        letter-spacing: 0.5px;
+        margin-top: 10px;
+        color:#333;
+        text-align: center;
+    }
+    &__result{
+        margin-top:15px;
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+        color:#222;
+        text-align: center;
+    }
+    span{
+        display: block;
+        margin-top:10px;
+    }
+}
+
+.global{
+    &__confirmed{
+        color:#555;
+    }
+    &__deaths{
+        color:#a33;
+    }
+    &__recovered{
+        color:#383;
+    }
+}
