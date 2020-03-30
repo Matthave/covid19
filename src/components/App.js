@@ -89,7 +89,13 @@ class App extends React.Component {
 
   onChangeInput = (event) => {
     this.setState({
-      valueInput: event.target.value
+      [event.target.name]: event.target.value
+    })
+  }
+
+  clearInput = () => {
+    this.setState({
+      valueInput: ''
     })
   }
 
@@ -102,7 +108,7 @@ class App extends React.Component {
       (country.country.toUpperCase()).includes(valueInput.toUpperCase())
     ))
 
-    const country = countriesArr.map((country) => (
+    const country = newCountries.map((country) => (
       < Country
         key={country.country}
         country={country.country}
@@ -134,6 +140,7 @@ class App extends React.Component {
               newCountries={newCountries}
               onChangeInput={this.onChangeInput}
               valueInput={valueInput}
+              clearInput={this.clearInput}
             />}>
             </Route>
 
@@ -145,7 +152,12 @@ class App extends React.Component {
               dayDeaths={this.dayDeaths}
               recovered={recovered}
               active={this.active}
-              critical={this.critical} />} >
+              critical={this.critical}
+              valueInput={valueInput}
+              onChangeInput={this.onChangeInput}
+              clearInput={this.clearInput}
+            />}
+            >
             </Route>
           </Switch>
         </div>
