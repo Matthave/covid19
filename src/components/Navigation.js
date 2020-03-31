@@ -17,7 +17,7 @@ function Navigation(props) {
 
         <li className="nav__list"><NavLink to='/table'><img src={tableImg} alt="tableImage" className="nav__img" /></NavLink></li>
 
-        <li className="nav__list"><img src={props.darkMode ? moonImg : sunImg} alt="tableImage" className="nav__img moon" onClick={props.toggleDarkMode} /></li>
+        <li className="nav__list"><img src={props.darkMode ? sunImg : moonImg} alt="tableImage" className="nav__img moon" onClick={props.toggleDarkMode} /></li>
       </ul>
     </nav>
   )

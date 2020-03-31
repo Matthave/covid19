@@ -1,3 +1,11 @@
+
+.tableWrap{
+    overflow: scroll;
+    @include mq(large){
+        overflow: initial;
+    }
+}
+
 .table{
     width: 100%;
     border-collapse: collapse;
@@ -11,7 +19,7 @@
         margin-bottom: 15px;
         @include darkModeTransition;
         &--darkMode{
-            background-color: #131317;
+            background-color: #1a1a20;
             border:1px solid #444;
             color:#fff;
         }
@@ -40,15 +48,15 @@
     cursor: pointer;
     @include darkModeTransition;
     &--activeMode{
-        background-color: #515160 !important;
+        background-color: #737389 !important;
     }
     &--darkMode{
         color:#ddd;
-        background-color: #131317;
+        background-color: #1a1a20;
     }
     @include mq(large){
         &:hover{
-            background-color: #515160;
+            background-color: #737389;
         }
     }
 }
@@ -69,14 +77,14 @@
 
 th{
   padding:10px 5px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   border:1px solid grey;
   text-transform: capitalize;
   letter-spacing: 0.5px;
   min-width:105px;
   max-width: 105px;
   @include mq(large){
-        font-size: 1.7rem;
+        font-size: 1.8rem;
 }
 }
 
@@ -98,6 +106,6 @@ th{
 }
 
 .thead__thCountry{
-    min-width:160px;
-    max-width: 160px;
+    min-width:150px;
+    max-width: 150px;
 }

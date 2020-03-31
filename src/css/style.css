@@ -3,6 +3,12 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 html {
@@ -103,8 +109,8 @@ body {
 }
 
 .global__result {
-  margin-top: 15px;
-  font-size: 2.8rem;
+  margin-top: 25px;
+  font-size: 3.3rem;
   letter-spacing: 2px;
   color: #222;
   text-align: center;
@@ -118,7 +124,8 @@ body {
 
 @media (min-width: 1200px) {
   .global__result {
-    font-size: 4rem;
+    margin-top: 15px;
+    font-size: 5rem;
   }
 }
 
@@ -137,6 +144,16 @@ body {
 
 .global__recovered {
   color: #383;
+}
+
+.tableWrap {
+  overflow: scroll;
+}
+
+@media (min-width: 1024px) {
+  .tableWrap {
+    overflow: initial;
+  }
 }
 
 .table {
@@ -177,7 +194,7 @@ body {
 }
 
 .table__input--darkMode {
-  background-color: #131317;
+  background-color: #1a1a20;
   border: 1px solid #444;
   color: #fff;
 }
@@ -210,17 +227,17 @@ body {
 }
 
 .tbody__tr--activeMode {
-  background-color: #515160 !important;
+  background-color: #737389 !important;
 }
 
 .tbody__tr--darkMode {
   color: #ddd;
-  background-color: #131317;
+  background-color: #1a1a20;
 }
 
 @media (min-width: 1024px) {
   .tbody__tr:hover {
-    background-color: #515160;
+    background-color: #737389;
   }
 }
 
@@ -240,7 +257,7 @@ body {
 
 th {
   padding: 10px 5px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   border: 1px solid grey;
   text-transform: capitalize;
   letter-spacing: 0.5px;
@@ -250,7 +267,7 @@ th {
 
 @media (min-width: 1024px) {
   th {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -280,8 +297,8 @@ th {
 }
 
 .thead__thCountry {
-  min-width: 160px;
-  max-width: 160px;
+  min-width: 150px;
+  max-width: 150px;
 }
 
 .nav {

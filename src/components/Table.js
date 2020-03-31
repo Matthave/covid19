@@ -8,11 +8,11 @@ class Table extends React.Component {
 
   render() {
     return (
-      <>
+      <div className='tableWrap'>
         <h1 className={this.props.darkMode ? "title title--darkMode" : "title"}>covid-19 coronavirus <span className='table__span'>Table</span></h1>
         <form className="table__form">
           <input type="text" className={this.props.darkMode ? "table__input table__input--darkMode" : "table__input"} value={this.props.valueInput} name='valueInput'
-            onChange={(event) => this.props.onChangeInput(event)} placeholder="Type few letter's of country" autoComplete="off"
+            onChange={(event) => this.props.onChangeInput(event)} placeholder="Type few letters of country" autoComplete="off"
           />
         </form>
         <table className='table'>
@@ -49,7 +49,7 @@ class Table extends React.Component {
             {this.props.country}
           </tbody>
         </table>
-      </>
+      </div>
     )
   }
 }
