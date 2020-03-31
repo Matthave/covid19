@@ -2,13 +2,25 @@ import React from 'react'
 
 class Table extends React.Component {
 
+  state = {
+    activeTable: false,
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        activeTable: true,
+      })
+    }, 100);
+  }
+
   componentWillUnmount() {
     this.props.clearInput()
   }
 
   render() {
     return (
-      <div className='tableWrap'>
+      <div className={this.state.activeTable ? "tableWrap tableWrap--active" : "tableWrap"}>
         <h1 className={this.props.darkMode ? "title title--darkMode" : "title"}>covid-19 coronavirus <span className='table__span'>Table</span></h1>
         <form className="table__form">
           <input type="text" className={this.props.darkMode ? "table__input table__input--darkMode" : "table__input"} value={this.props.valueInput} name='valueInput'

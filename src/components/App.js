@@ -5,7 +5,6 @@ import Global from './Global';
 import DetailsCountry from './DetailsCountry';
 import Table from './Table';
 import { Route, Switch, HashRouter, } from 'react-router-dom';
-import logo from '../IMG/NewLogoSmallTransparent.png';
 import '../css/style.css';
 
 class App extends React.Component {

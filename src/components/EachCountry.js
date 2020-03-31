@@ -1,7 +1,7 @@
 import React from 'react'
 
 function EachCountry(props) {
-  console.log(props.countriesDetails)
+
   return (
     <>
       <div className={props.darkMode ? 'eachCountry eachCountry--darkMode' : 'eachCountry'}>

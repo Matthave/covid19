@@ -1,14 +1,13 @@
+// font-family: 'Righteous', cursive;
+// font-family: 'Krona One', sans-serif;
+// font-family: 'Lexend Peta', sans-serif;
+
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-     user-select: none;
 }
 
 html{
@@ -17,7 +16,6 @@ html{
 }
 
 body{
-    background-color: #000;
     @include darkModeTransition;
 }
 
@@ -26,7 +24,7 @@ body{
     max-width:1375px;
     margin: 0 auto;
     margin-bottom: 42px;
-    padding-left: 50px;
+    padding-left: 55px;
 }
 
 ::-webkit-scrollbar{

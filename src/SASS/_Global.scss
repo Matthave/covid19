@@ -1,10 +1,16 @@
 .global{
+    opacity: 0;
+    transition: 0.25s linear;
+    &--active{
+        opacity: 1;
+    }
     &__sections{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         min-height: 75vh;
+        transition: 0.2s linear;
     }
     &__section{
         width:90%;
@@ -20,10 +26,9 @@
         }
     }
     &__title{
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         letter-spacing: 0.5px;
         margin-top: 10px;
-        color:#333;
         text-align: center;
         @include darkModeTransition;
         &--darkMode{
@@ -33,7 +38,7 @@
             font-size: 2rem;
         }
         @include mq(xlarge){
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             letter-spacing: 1px;
         }
     }
@@ -43,6 +48,7 @@
         letter-spacing: 2px;
         color:#222;
         text-align: center;
+        font-family: 'Krona One', sans-serif;
         @include mq(large){
             font-size: 3.5rem;
         }

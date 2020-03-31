@@ -1,6 +1,7 @@
 @mixin input {
     display: block;
     width:80%;
+    max-width:500px;
     padding:2.5px;
     margin:0 auto;
     font-size: 1.5rem;
@@ -21,7 +22,7 @@
 }
 
 @mixin darkModeTransition {
-  transition: 0.2s linear;
+  transition: 0.3s linear;
 }
 
 $breakpoints: (

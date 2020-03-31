@@ -1,4 +1,9 @@
 .detailsCountry{
+    opacity: 0;
+    transition: 0.25s linear;
+    &--active{
+        opacity: 1;
+    }
     &__span{
         @include span;
     }
@@ -7,7 +12,6 @@
     }
     &__input{
     @include input;
-    max-width: 924px;
     @include darkModeTransition;
     &--darkMode{
         background-color: #222227;
@@ -50,6 +54,7 @@
     &__country{
         font-size: 2rem;
         letter-spacing: 0.5px;
+        font-family: 'Krona One', sans-serif;
         @include mq(large){
         font-size: 3.5rem;
         flex-basis:100%;

@@ -5,10 +5,6 @@
           box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 html {
@@ -17,9 +13,8 @@ html {
 }
 
 body {
-  background-color: #000;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .App {
@@ -27,7 +22,7 @@ body {
   max-width: 1375px;
   margin: 0 auto;
   margin-bottom: 42px;
-  padding-left: 50px;
+  padding-left: 55px;
 }
 
 ::-webkit-scrollbar {
@@ -47,6 +42,16 @@ body {
   background: #000;
 }
 
+.global {
+  opacity: 0;
+  -webkit-transition: 0.25s linear;
+  transition: 0.25s linear;
+}
+
+.global--active {
+  opacity: 1;
+}
+
 .global__sections {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,6 +67,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   min-height: 75vh;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .global__section {
@@ -73,8 +80,8 @@ body {
   background-color: #f5f5f5;
   -webkit-box-shadow: 0px 0px 3px 0px #555;
           box-shadow: 0px 0px 3px 0px #555;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .global__section--darkMode {
@@ -82,13 +89,12 @@ body {
 }
 
 .global__title {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   letter-spacing: 0.5px;
   margin-top: 10px;
-  color: #333;
   text-align: center;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .global__title--darkMode {
@@ -103,7 +109,7 @@ body {
 
 @media (min-width: 1200px) {
   .global__title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     letter-spacing: 1px;
   }
 }
@@ -114,6 +120,7 @@ body {
   letter-spacing: 2px;
   color: #222;
   text-align: center;
+  font-family: 'Krona One', sans-serif;
 }
 
 @media (min-width: 1024px) {
@@ -148,6 +155,13 @@ body {
 
 .tableWrap {
   overflow: scroll;
+  opacity: 0;
+  -webkit-transition: 0.25s linear;
+  transition: 0.25s linear;
+}
+
+.tableWrap--active {
+  opacity: 1;
 }
 
 @media (min-width: 1024px) {
@@ -172,14 +186,15 @@ body {
 .table__input {
   display: block;
   width: 80%;
+  max-width: 500px;
   padding: 2.5px;
   margin: 0 auto;
   font-size: 1.5rem;
   outline: none;
   border: 1px solid black;
   margin-bottom: 15px;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .table__input:focus {
@@ -201,8 +216,8 @@ body {
 
 .thead {
   color: #555;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .thead--darkMode {
@@ -215,15 +230,23 @@ body {
 
 .thead__th {
   border: 1px solid grey;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
+  font-family: 'Lexend Peta', sans-serif;
+  height: 85px;
+}
+
+@media (min-width: 1024px) {
+  .thead__th {
+    font-size: 1.4rem;
+  }
 }
 
 .tbody__tr {
   color: #000;
   border: 1px solid #555;
   cursor: pointer;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .tbody__tr--activeMode {
@@ -276,8 +299,9 @@ th {
   text-transform: uppercase;
   padding: 25px 5px;
   letter-spacing: 1px;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  font-family: 'Krona One', sans-serif;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .title--darkMode {
@@ -305,12 +329,12 @@ th {
   position: fixed;
   top: 0;
   left: 0;
-  width: 50px;
+  width: 55px;
   height: 100vh;
   border-right: 1px solid black;
   background-color: #fff;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .nav--darkMode {
@@ -342,7 +366,7 @@ th {
   background-color: #fff;
   border-radius: 50%;
   border: 1px solid #222;
-  padding: 1.5px;
+  padding: 4px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   -webkit-transition: 0.2s linear;
@@ -356,8 +380,38 @@ th {
 }
 
 .moon {
+  -webkit-transform: translateY(130px);
+          transform: translateY(130px);
+}
+
+@media (min-width: 1024px) {
+  .moon:hover {
+    -webkit-box-shadow: 0px 0px 0px 50px rgba(22, 22, 22, 0.75);
+            box-shadow: 0px 0px 0px 50px rgba(22, 22, 22, 0.75);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sun:hover {
+    -webkit-box-shadow: 0px 0px 0px 50px rgba(233, 233, 233, 0.75);
+            box-shadow: 0px 0px 0px 50px rgba(233, 233, 233, 0.75);
+  }
+}
+
+.myLogo {
   -webkit-transform: translateY(60px);
           transform: translateY(60px);
+  background-color: #000;
+}
+
+.detailsCountry {
+  opacity: 0;
+  -webkit-transition: 0.25s linear;
+  transition: 0.25s linear;
+}
+
+.detailsCountry--active {
+  opacity: 1;
 }
 
 .detailsCountry__span {
@@ -372,14 +426,14 @@ th {
 .detailsCountry__input {
   display: block;
   width: 80%;
+  max-width: 500px;
   padding: 2.5px;
   margin: 0 auto;
   font-size: 1.5rem;
   outline: none;
   border: 1px solid black;
-  max-width: 924px;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .detailsCountry__input:focus {
@@ -421,8 +475,8 @@ th {
   background-color: #f5f5f5;
   -webkit-box-shadow: 0px 0px 3px 0px #555;
           box-shadow: 0px 0px 3px 0px #555;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .eachCountry:nth-child(even) {
@@ -452,8 +506,9 @@ th {
 .eachCountry__country {
   font-size: 2rem;
   letter-spacing: 0.5px;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  font-family: 'Krona One', sans-serif;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 @media (min-width: 1024px) {
@@ -473,8 +528,8 @@ th {
   font-size: 1.4rem;
   margin: 5px 0px;
   color: #333;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 @media (min-width: 1024px) {
