@@ -34,16 +34,20 @@ class Country extends React.Component {
     })
   }
 
+  clickHandle = (e) => {
+    e.target.parentNode.classList.toggle('tbody__tr--activeMode')
+  }
+
   render() {
 
-    const { country, firstCase } = this.props;
+    const { country, firstCase, darkMode } = this.props;
     const { confirmedCases, newCases, deaths, newDeaths, recovered, active, critical, casesPerM, deathsPerM } = this.state;
 
     return (
-      <tr className='tbody__tr'>
+      <tr onClick={(e) => this.clickHandle(e)} className={darkMode ? "tbody__tr tbody__tr--darkMode" : "tbody__tr"}>
         <th className="tbody__th">{country}</th>
         <th className="tbody__th">{confirmedCases}</th>
-        <th className="tbody__th todayCases" style={newCases !== '0' ? { backgroundColor: 'rgb(233, 203, 121)' } : {}}>{newCases !== '0' ? `+${newCases}` : null}</th>
+        <th className="tbody__th todayCases" style={newCases !== '0' ? { backgroundColor: 'rgb(233, 203, 121)', color: '#000' } : {}}>{newCases !== '0' ? `+${newCases}` : null}</th>
         <th className="tbody__th">{deaths}</th>
         <th className="tbody__th todayDeaths" style={newDeaths !== '0' ? { backgroundColor: 'rgb(231, 46, 46)', color: 'white' } : {}}>{newDeaths !== '0' ? `+${newDeaths}` : null}</th>
         <th className="tbody__th">{recovered}</th>

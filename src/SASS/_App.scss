@@ -6,7 +6,12 @@
 
 html{
     font-size: 10px;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body{
+    background-color: #000;
+    @include darkModeTransition;
 }
 
 .App{

@@ -16,7 +16,7 @@ class App extends React.Component {
     deaths: '',
     todayCases: '',
     countries: '',
-    foooterOnBottom: false,
+    darkMode: false,
     valueInput: '',
   }
 
@@ -99,14 +99,22 @@ class App extends React.Component {
     })
   }
 
+  toggleDarkMode = () => {
+    this.setState({
+      darkMode: !this.state.darkMode
+    })
+  }
+
   render() {
-    const { countries, valueInput, confirmed, deaths, recovered, } = this.state;
+    const { countries, valueInput, confirmed, deaths, recovered, darkMode } = this.state;
 
     const countriesArr = [...this.state.countries];
 
     const newCountries = countriesArr.filter((country) => (
       (country.country.toUpperCase()).includes(valueInput.toUpperCase())
     ))
+
+    darkMode ? document.body.style.backgroundColor = "#111" : document.body.style.backgroundColor = "#fff"
 
     const country = newCountries.map((country) => (
       < Country
@@ -122,17 +130,20 @@ class App extends React.Component {
         casesPerOneMillion={country.casesPerOneMillion}
         deathsPerOneMillion={country.deathsPerOneMillion}
         firstCase={country.firstCase}
+        darkMode={darkMode}
       />
     ))
     return (
       <HashRouter>
         <div className="App">
-          <Navigation />
+          <Navigation darkMode={darkMode} toggleDarkMode={this.toggleDarkMode} />
           <Switch>
             <Route exact path='/' render={() => <Global
               confirmed={confirmed}
               deaths={deaths}
-              recovered={recovered} />}>
+              recovered={recovered}
+              darkMode={darkMode}
+            />}>
             </Route>
 
             <Route path='/countries' render={() => <DetailsCountry
@@ -141,6 +152,7 @@ class App extends React.Component {
               onChangeInput={this.onChangeInput}
               valueInput={valueInput}
               clearInput={this.clearInput}
+              darkMode={darkMode}
             />}>
             </Route>
 
@@ -156,6 +168,7 @@ class App extends React.Component {
               valueInput={valueInput}
               onChangeInput={this.onChangeInput}
               clearInput={this.clearInput}
+              darkMode={darkMode}
             />}
             >
             </Route>

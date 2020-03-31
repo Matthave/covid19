@@ -4,24 +4,53 @@
     border:1px solid black;
     box-shadow: 0px 0px 5px 0px #555;
     &__span{
-        display: block;
-        margin-top:10px;
+        @include span;
     }
     &__input{
         @include input;
         margin-bottom: 15px;
+        @include darkModeTransition;
+        &--darkMode{
+            background-color: #131317;
+            border:1px solid #444;
+            color:#fff;
+        }
     }
 }
 
 .thead{
+    color:#555;
+    @include darkModeTransition;
+    &--darkMode{
+        color:#bbb;
+    }
 &__tr{
         font-size: 0;
     }
 &__th{
     border:1px solid grey;
     font-size: 1.6rem;
-    color:#555;
+    
 }
+}
+
+.tbody__tr{
+    color:#000;
+    border:1px solid #555;
+    cursor: pointer;
+    @include darkModeTransition;
+    &--activeMode{
+        background-color: #515160 !important;
+    }
+    &--darkMode{
+        color:#ddd;
+        background-color: #131317;
+    }
+    @include mq(large){
+        &:hover{
+            background-color: #515160;
+        }
+    }
 }
 
 .wolrdTr{
@@ -46,6 +75,9 @@ th{
   letter-spacing: 0.5px;
   min-width:105px;
   max-width: 105px;
+  @include mq(large){
+        font-size: 1.7rem;
+}
 }
 
 .title{
@@ -53,6 +85,16 @@ th{
     text-transform: uppercase;
     padding: 25px 5px;
     letter-spacing: 1px;
+    @include darkModeTransition;
+    &--darkMode{
+        color:white;
+    }
+    @include mq(large){
+        font-size: 3rem
+    }
+    @include mq(xlarge){
+        font-size: 4rem
+    }
 }
 
 .thead__thCountry{
