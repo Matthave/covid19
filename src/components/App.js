@@ -107,7 +107,7 @@ class App extends React.Component {
   render() {
     const { countries, valueInput, confirmed, deaths, recovered, darkMode } = this.state;
 
-    const countriesArr = [...this.state.countries];
+    const countriesArr = [...countries];
 
     const newCountries = countriesArr.filter((country) => (
       (country.country.toUpperCase()).includes(valueInput.toUpperCase())

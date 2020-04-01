@@ -19,16 +19,18 @@ class Table extends React.Component {
   }
 
   render() {
+    const { darkMode, valueInput, onChangeInput, confirmed, dayCases, deaths, dayDeaths, recovered, active, critical, country } = this.props;
+
     return (
       <div className={this.state.activeTable ? "tableWrap tableWrap--active" : "tableWrap"}>
-        <h1 className={this.props.darkMode ? "title title--darkMode" : "title"}>covid-19 coronavirus <span className='table__span'>Table</span></h1>
+        <h1 className={darkMode ? "title title--darkMode" : "title"}>covid-19 coronavirus <span className='table__span'>Table</span></h1>
         <form className="table__form">
-          <input type="text" className={this.props.darkMode ? "table__input table__input--darkMode" : "table__input"} value={this.props.valueInput} name='valueInput'
-            onChange={(event) => this.props.onChangeInput(event)} placeholder="Type few letters of country" autoComplete="off"
+          <input type="text" className={darkMode ? "table__input table__input--darkMode" : "table__input"} value={valueInput} name='valueInput'
+            onChange={(event) => onChangeInput(event)} placeholder="Type few letters of country" autoComplete="off"
           />
         </form>
         <table className='table'>
-          <thead className={this.props.darkMode ? "thead thead--darkMode" : "thead"}>
+          <thead className={darkMode ? "thead thead--darkMode" : "thead"}>
             <tr className='thead__tr'>
               <th className='thead__th thead__thCountry'>Country</th>
               <th className='thead__th'>Confirmed Cases</th>
@@ -47,18 +49,18 @@ class Table extends React.Component {
           <tbody>
             <tr className='wolrdTr'>
               <th>World</th>
-              <th>{this.props.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{`+${this.props.dayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
-              <th>{this.props.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{`+${this.props.dayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
-              <th>{this.props.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{this.props.active.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{this.props.critical.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{Math.floor(this.props.confirmed / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{Math.floor(this.props.deaths / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{`+${dayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
+              <th>{deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{`+${dayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
+              <th>{recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{active.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{critical.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{Math.floor(confirmed / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+              <th>{Math.floor(deaths / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
               <th>Jan 10</th>
             </tr>
-            {this.props.country}
+            {country}
           </tbody>
         </table>
       </div>

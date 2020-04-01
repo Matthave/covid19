@@ -20,15 +20,18 @@ class DetailsCountry extends React.Component {
     }
 
     render() {
-        const eachCountry = this.props.newCountries.map((country) => (
-            <EachCountry key={country.country} countriesDetails={country} darkMode={this.props.darkMode} />
+
+        const { newCountries, darkMode, valueInput, onChangeInput } = this.props;
+
+        const eachCountry = newCountries.map((country) => (
+            <EachCountry key={country.country} countriesDetails={country} darkMode={darkMode} />
         ))
 
         return (
             <div className={this.state.activeDetailsCountry ? "detailsCountry detailsCountry--active" : "detailsCountry"}>
-                <h1 className={this.props.darkMode ? "title title--darkMode" : "title"}>covid-19 coronavirus <span className='detailsCountry__span'>Statistic for each country</span></h1>
+                <h1 className={darkMode ? "title title--darkMode" : "title"}>covid-19 coronavirus <span className='detailsCountry__span'>Statistic for each country</span></h1>
                 <form className="detailsCountry__form">
-                    <input className={this.props.darkMode ? 'detailsCountry__input detailsCountry__input--darkMode' : 'detailsCountry__input'} type="text" onChange={(event) => this.props.onChangeInput(event)} value={this.props.valueInput} name='valueInput' placeholder="Type few letters of country" autoComplete="off" />
+                    <input className={darkMode ? 'detailsCountry__input detailsCountry__input--darkMode' : 'detailsCountry__input'} type="text" onChange={(event) => onChangeInput(event)} value={valueInput} name='valueInput' placeholder="Type few letters of country" autoComplete="off" />
                 </form>
                 {eachCountry}
             </div>

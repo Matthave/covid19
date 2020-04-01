@@ -9,8 +9,10 @@ import { NavLink } from 'react-router-dom'
 
 function Navigation(props) {
 
+  const { darkMode, toggleDarkMode } = props;
+
   return (
-    <nav className={props.darkMode ? "nav nav--darkMode" : "nav"}>
+    <nav className={darkMode ? "nav nav--darkMode" : "nav"}>
       <ul className="nav__ul">
         <li className="nav__list"><NavLink to='/'><img src={globalImg} alt="globalImage" className="nav__img" /></NavLink></li>
 
@@ -18,7 +20,7 @@ function Navigation(props) {
 
         <li className="nav__list"><NavLink to='/table'><img src={tableImg} alt="tableImage" className="nav__img" /></NavLink></li>
 
-        <li className="nav__list"><img src={props.darkMode ? sunImg : moonImg} alt="light-DarkImg" className={props.darkMode ? "nav__img sun" : "nav__img moon"} onClick={props.toggleDarkMode} /></li>
+        <li className="nav__list"><img src={darkMode ? sunImg : moonImg} alt="light-DarkImg" className={darkMode ? "nav__img sun" : "nav__img moon"} onClick={toggleDarkMode} /></li>
 
         <li className="nav__list"><a href='http://www.matthave.pl/' target="_blank" rel='noopener noreferrer'><img src={logo} alt="MattHaveLogo" className="nav__img myLogo" /></a></li>
       </ul>
