@@ -12,7 +12,7 @@ class DetailsCountry extends React.Component {
             this.setState({
                 activeDetailsCountry: true
             })
-        }, 100);
+        }, 200);
     }
 
     componentWillUnmount() {

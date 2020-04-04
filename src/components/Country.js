@@ -11,6 +11,7 @@ class Country extends React.Component {
     critical: '',
     casesPerM: '',
     deathsPerM: '',
+    deathRatio: (this.props.deaths / this.props.cases) * 100
   }
 
   componentDidMount() {
@@ -40,7 +41,7 @@ class Country extends React.Component {
 
   render() {
 
-    const { country, firstCase, darkMode } = this.props;
+    const { country, darkMode } = this.props;
     const { confirmedCases, newCases, deaths, newDeaths, recovered, active, critical, casesPerM, deathsPerM } = this.state;
 
     return (
@@ -55,7 +56,7 @@ class Country extends React.Component {
         <th className="tbody__th">{critical}</th>
         <th className="tbody__th">{casesPerM}</th>
         <th className="tbody__th">{deathsPerM}</th>
-        <th className="tbody__th">{firstCase}</th>
+        <th className="tbody__th">{this.state.deathRatio.toFixed(2)}%</th>
       </tr>
     )
   }

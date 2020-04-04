@@ -2,7 +2,7 @@
 .tableWrap{
     overflow: scroll;
     opacity: 0;
-    transition: 0.25s linear;
+    transition: 0.5s linear;
     &--active{
         opacity:1;
     }
@@ -16,6 +16,10 @@
     border-collapse: collapse;
     border:1px solid black;
     box-shadow: 0px 0px 5px 0px #555;
+    @include darkModeTransition;
+    &--darkMode{
+        background-color: #1a1a20;
+    }
     &__span{
         @include span;
     }
@@ -61,7 +65,6 @@
     }
     &--darkMode{
         color:#ddd;
-        background-color: #1a1a20;
     }
     @include mq(large){
         &:hover{

@@ -10,7 +10,7 @@ class Global extends React.Component {
       this.setState({
         activeGlobal: true
       })
-    }, 100);
+    }, 200);
   }
 
   render() {

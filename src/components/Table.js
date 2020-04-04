@@ -11,7 +11,7 @@ class Table extends React.Component {
       this.setState({
         activeTable: true,
       })
-    }, 100);
+    }, 200);
   }
 
   componentWillUnmount() {
@@ -29,8 +29,8 @@ class Table extends React.Component {
             onChange={(event) => onChangeInput(event)} placeholder="Type few letters of country" autoComplete="off"
           />
         </form>
-        <table className='table'>
-          <thead className={darkMode ? "thead thead--darkMode" : "thead"}>
+        <table className={darkMode ? "table table--darkMode" : "table"}>
+          <thead className='thead'>
             <tr className='thead__tr'>
               <th className='thead__th thead__thCountry'>Country</th>
               <th className='thead__th'>Confirmed Cases</th>
@@ -42,7 +42,7 @@ class Table extends React.Component {
               <th className='thead__th'>Critical</th>
               <th className='thead__th'>Total Cases/ 1M</th>
               <th className='thead__th'>Deaths/ 1M</th>
-              <th className='thead__th'>First Case</th>
+              <th className='thead__th'>Death Rate</th>
             </tr>
           </thead>
 
@@ -56,9 +56,9 @@ class Table extends React.Component {
               <th>{recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
               <th>{active.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
               <th>{critical.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{Math.floor(confirmed / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>{Math.floor(deaths / 7774).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-              <th>Jan 10</th>
+              <th>{(confirmed / 7774).toFixed(2)}</th>
+              <th>{(deaths / 7774).toFixed(2)}</th>
+              <th>-</th>
             </tr>
             {country}
           </tbody>
