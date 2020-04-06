@@ -24,7 +24,9 @@ class DetailsCountry extends React.Component {
         const { newCountries, darkMode, valueInput, onChangeInput } = this.props;
 
         const eachCountry = newCountries.map((country) => (
-            <EachCountry key={country.country} countriesDetails={country} darkMode={darkMode} />
+            <EachCountry key={country.country} countriesDetails={country} darkMode={darkMode}
+                countryFlag={country.countryInfo.flag}
+            />
         ))
 
         return (

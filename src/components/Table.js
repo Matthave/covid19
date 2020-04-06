@@ -19,7 +19,7 @@ class Table extends React.Component {
   }
 
   render() {
-    const { darkMode, valueInput, onChangeInput, confirmed, dayCases, deaths, dayDeaths, recovered, active, critical, country } = this.props;
+    const { darkMode, valueInput, onChangeInput, confirmed, dayCases, deaths, dayDeaths, recovered, active, critical, country, clickHandleSort } = this.props;
 
     return (
       <div className={this.state.activeTable ? "tableWrap tableWrap--active" : "tableWrap"}>
@@ -30,16 +30,16 @@ class Table extends React.Component {
           />
         </form>
         <table className={darkMode ? "table table--darkMode" : "table"}>
-          <thead className='thead'>
+          <thead className={darkMode ? "thead thead--darkMode" : "thead"}>
             <tr className='thead__tr'>
               <th className='thead__th thead__thCountry'>Country</th>
-              <th className='thead__th'>Confirmed Cases</th>
-              <th className='thead__th'>New Cases</th>
-              <th className='thead__th'>Total Deaths</th>
-              <th className='thead__th'>New Deaths</th>
-              <th className='thead__th'>Total Revocered</th>
-              <th className='thead__th'>Active Cases</th>
-              <th className='thead__th'>Critical</th>
+              <th className='thead__th' onClick={clickHandleSort}>Confirmed Cases<i class="fas fa-exchange-alt"></i></th>
+              <th className='thead__th'>New Cases<i class="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={clickHandleSort}>Total Deaths<i class="fas fa-exchange-alt"></i></th>
+              <th className='thead__th'>New Deaths<i class="fas fa-exchange-alt"></i></th>
+              <th className='thead__th'>Total Revocered<i class="fas fa-exchange-alt"></i></th>
+              <th className='thead__th'>Active Cases<i class="fas fa-exchange-alt"></i></th>
+              <th className='thead__th'>Critical<i class="fas fa-exchange-alt"></i></th>
               <th className='thead__th'>Total Cases/ 1M</th>
               <th className='thead__th'>Deaths/ 1M</th>
               <th className='thead__th'>Death Rate</th>

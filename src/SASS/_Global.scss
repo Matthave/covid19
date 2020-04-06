@@ -13,16 +13,25 @@
         transition: 0.2s linear;
     }
     &__section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         width:90%;
-        height: 150px;
+        min-height: 150px;
         padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 10px;
+        margin-bottom: 30px;
+        border-radius: 5px;
         background-color: #f5f5f5;
-        box-shadow: 0px 0px 3px 0px #555;
+        box-shadow: 0px 0px 4px 1px #000;
+        @include mq(large){
+            flex-direction: row;
+            flex-wrap: wrap;
+            width:100%;
+        }
         @include darkModeTransition;
         &--darkMode{
-            background-color: #222227;
+            background-color: #181818;
+            box-shadow: 0px 0px 4px 1px #555;
         }
     }
     &__title{
@@ -36,14 +45,15 @@
         }
         @include mq(large){
             font-size: 2rem;
+            width: 100%;
         }
         @include mq(xlarge){
             font-size: 2.5rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
     }
     &__result{
-        margin-top:25px;
+        margin-top:10px;
         font-size: 3rem;
         letter-spacing: 2px;
         color:#222;
@@ -63,11 +73,31 @@
     span{
        @include span;
     }
+    &__span{
+        font-size: 2rem;
+        color:#000;
+        @include mq(xsmall){
+            font-size: 2.3rem;
+        }
+        @include mq(large){
+            font-size: 2.5rem;
+        }
+        @include mq(xlarge){
+            font-size: 3rem;
+        }
+        &--darkMode{
+            color:#fff;
+        }
+    }
+    &__statsRow{
+        margin:20px 0px;
+        
+    }
 }
 
 .global{
     &__confirmed{
-        color:#555;
+        color:#777;
     }
     &__deaths{
         color:#a33;
@@ -75,4 +105,20 @@
     &__recovered{
         color:#383;
     }
+}
+
+.activeGlobal{
+    color:#8a8a8a;
+}
+
+.critical{
+    color:#d33;
+}
+
+.todayCases{
+   color: rgb(231, 94, 44)
+}
+
+.todayDeaths{
+color:#d33;
 }

@@ -15,7 +15,7 @@
     @include input;
     @include darkModeTransition;
     &--darkMode{
-        background-color: #222227;
+        background-color: #151515;
         border:1px solid #444;
         color:#fff;
     }
@@ -29,13 +29,13 @@
     justify-content: space-evenly;
     width:90%;
     max-width: 1024px;
-    height: 160px;
+    height: 200px;
     padding: 10px;
     margin: 0 auto;
-    margin-bottom: 12.5px;
+    margin-bottom: 20px;
     border-radius: 10px;
     background-color: #f5f5f5;
-    box-shadow: 0px 0px 3px 0px #555;
+    box-shadow: 0px 0px 4px 1px #000;
     &:nth-child(even){
       text-align: end;
       }
@@ -44,15 +44,16 @@
             text-align: center;
         } 
     flex-direction: row;
-    height: 150px;
     text-align: center;
     flex-wrap: wrap;
     }
     @include darkModeTransition;
     &--darkMode{
-        background-color: #222227;
+        background-color: #181818;
+        box-shadow: 0px 0px 4px 1px #555;
     }
     &__country{
+        font-size: #000;
         font-size: 2rem;
         letter-spacing: 0.5px;
         font-family: 'Krona One', sans-serif;
@@ -69,24 +70,31 @@
     &__text{
         font-size: 1.4rem;
         margin: 5px 0px;
-        color:#555;
+        color:#000;
         @include mq(medium){
         font-size: 2rem;
         }
         @include darkModeTransition;
         &--darkMode{
-            color:#aaa;
+            color:#fff;
         }
     }
     &__textSpan{
-        color:#000;
+        color:#333;
         @include darkModeTransition;
         &--darkMode{
-            color:#eee;
+            color:#ddd;
         }
         @include mq(medium){
             display: block;
         }
+    }
+    &__flag{
+        width:45px;
+        margin: 10px 0px;
+    }
+    &__header{
+        width:100%;
     }
 }
 
@@ -98,7 +106,6 @@
 }
 
 .eachCountry>h3:nth-child(5){
-    color:#000;
     font-size: 20px;
     @include mq (medium){
         font-size: 1.5rem;

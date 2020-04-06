@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAA;EACF,OAAO,EAAE,CAAC;CACb",
+    "sources": [
+        "../SASS/Chart.scss"
+    ],
+    "names": [],
+    "file": "Chart.css"
+}

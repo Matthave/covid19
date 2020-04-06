@@ -15,10 +15,11 @@
     width: 100%;
     border-collapse: collapse;
     border:1px solid black;
-    box-shadow: 0px 0px 5px 0px #555;
+    font-family: 'Open Sans Condensed', sans-serif ;
+    text-align: center;
     @include darkModeTransition;
     &--darkMode{
-        background-color: #1a1a20;
+        background-color: #151515;
     }
     &__span{
         @include span;
@@ -28,7 +29,7 @@
         margin-bottom: 15px;
         @include darkModeTransition;
         &--darkMode{
-            background-color: #1a1a20;
+            background-color: #151515;
             border:1px solid #444;
             color:#fff;
         }
@@ -36,19 +37,18 @@
 }
 
 .thead{
-    color:#555;
-    @include darkModeTransition;
-    &--darkMode{
-        color:#bbb;
-    }
+    color:#fff;
+    background-color: #111;
 &__tr{
         font-size: 0;
+        cursor: pointer;
     }
 &__th{
     border:1px solid grey;
     font-size: 1.3rem;
     font-family: 'Lexend Peta', sans-serif;
     height: 85px;
+    vertical-align: initial !important;
     @include mq(large){
         font-size: 1.4rem;
     }
@@ -61,25 +61,28 @@
     cursor: pointer;
     @include darkModeTransition;
     &--activeMode{
-        background-color: #737389 !important;
+        background-color: #bbb !important;
+        color:#000 !important;
     }
     &--darkMode{
         color:#ddd;
     }
     @include mq(large){
         &:hover{
-            background-color: #737389;
+            background-color: #bbb;
+            color:black;
         }
     }
 }
 
 .wolrdTr{
     th{
-        background-color: #ddd;
+        background-color: #bbb;
         height: 8vh;
+        padding: 20px;
     }
     & th:nth-child(3){
-        background-color: rgb(233, 203, 121);
+        background-color: rgb(231, 94, 44);
     }
     & th:nth-child(5){
         background-color: rgb(231, 46, 46);
@@ -106,6 +109,8 @@ th{
     padding: 25px 5px;
     letter-spacing: 1px;
     font-family: 'Krona One', sans-serif;
+    margin-top: 20px;
+    font-size: 2.2rem;
     @include darkModeTransition;
     &--darkMode{
         color:white;
@@ -121,4 +126,13 @@ th{
 .thead__thCountry{
     min-width:150px;
     max-width: 150px;
+}
+
+.deathRate{
+    color:#c33;
+}
+
+.fas{
+    display: block;
+    margin: 3px  0px;
 }

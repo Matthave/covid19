@@ -4,6 +4,8 @@ import Navigation from './Navigation';
 import Global from './Global';
 import DetailsCountry from './DetailsCountry';
 import Table from './Table';
+import Chart from './Chart';
+import Poland from './Poland';
 import { Route, Switch, HashRouter, } from 'react-router-dom';
 import '../css/style.css';
 
@@ -14,9 +16,13 @@ class App extends React.Component {
     recovered: '',
     deaths: '',
     todayCases: '',
+    todayDeaths: '',
+    active: '',
+    critical: '',
     countries: '',
     darkMode: false,
     valueInput: '',
+    sort: false,
   }
 
   dayCases = 0;
@@ -25,13 +31,7 @@ class App extends React.Component {
   critical = 0;
 
   componentDidMount() {
-    fetch("https://covid-19-data.p.rapidapi.com/totals", {
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-        "x-rapidapi-key": "ea797f220emshe356f29af1f15a8p10f7d6jsnf5ebb6e4ec59"
-      }
-    })
+    fetch("https://corona.lmao.ninja/all")
       .then(res => {
         if (res.ok) {
           return res.json()
@@ -41,16 +41,20 @@ class App extends React.Component {
       })
       .then(data => {
         this.setState({
-          confirmed: data[0].confirmed,
-          recovered: data[0].recovered,
-          deaths: data[0].deaths,
+          confirmed: data.cases,
+          recovered: data.recovered,
+          deaths: data.deaths,
+          todayCases: data.todayCases,
+          todayDeaths: data.todayDeaths,
+          active: data.active,
+          critical: data.critical,
         })
       })
       .catch(err => {
         console.log(err);
       });
 
-    fetch("https://coronavirus-19-api.herokuapp.com/countries", {
+    fetch("https://corona.lmao.ninja/countries?sort=country", {
       "method": "GET",
     })
       .then(res => res.json())
@@ -104,16 +108,29 @@ class App extends React.Component {
     })
   }
 
+  clickHandleSort = () => {
+    this.setState({
+      sort: !this.state.sort,
+    })
+  }
+
   render() {
-    const { countries, valueInput, confirmed, deaths, recovered, darkMode } = this.state;
+    const { countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, darkMode } = this.state;
 
     const countriesArr = [...countries];
+
+    if (this.state.sort) {
+      countriesArr.sort(function (a, b) { return b.deaths - a.deaths })
+    } else {
+      countriesArr.sort(function (a, b) { return b.cases - a.cases })
+    }
+
 
     const newCountries = countriesArr.filter((country) => (
       (country.country.toUpperCase()).includes(valueInput.toUpperCase())
     ))
 
-    darkMode ? document.body.style.backgroundColor = "#111" : document.body.style.backgroundColor = "#fff"
+    darkMode ? document.body.style.backgroundColor = "#000" : document.body.style.backgroundColor = "#fff"
 
     const country = newCountries.map((country) => (
       < Country
@@ -128,7 +145,6 @@ class App extends React.Component {
         critical={country.critical}
         casesPerOneMillion={country.casesPerOneMillion}
         deathsPerOneMillion={country.deathsPerOneMillion}
-        firstCase={country.firstCase}
         darkMode={darkMode}
       />
     ))
@@ -141,6 +157,10 @@ class App extends React.Component {
               confirmed={confirmed}
               deaths={deaths}
               recovered={recovered}
+              todayCases={todayCases}
+              todayDeaths={todayDeaths}
+              active={active}
+              critical={critical}
               darkMode={darkMode}
             />}>
             </Route>
@@ -167,10 +187,13 @@ class App extends React.Component {
               valueInput={valueInput}
               onChangeInput={this.onChangeInput}
               clearInput={this.clearInput}
+              clickHandleSort={this.clickHandleSort}
               darkMode={darkMode}
             />}
             >
             </Route>
+            <Route path='/chart' render={() => <Chart darkMode={darkMode} />}></Route>
+            <Route path='/poland' render={() => <Poland darkMode={darkMode} />}></Route>
           </Switch>
         </div>
       </HashRouter>
