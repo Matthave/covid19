@@ -828,6 +828,11 @@ th {
   margin: 10px auto;
 }
 
+.chart__span {
+  display: block;
+  margin: 10px 0px;
+}
+
 .container {
   position: relative;
   margin: 20px auto;

@@ -48,17 +48,25 @@ class SingleChart extends Component {
         return [String(key), historicalDataObj[key]];
       });
 
-      const last7Days = historicalDataArray.slice(-14)
+      const last7Days = historicalDataArray.slice(-15)
+      let deathsPerDay = 0;
+      const deathsPerDayArr = [];
+
+      last7Days.forEach((day) => {
+        let pair = day[1] - deathsPerDay;
+        deathsPerDayArr.push(pair)
+        deathsPerDay = day[1];
+      })
 
       const data = {
-        labels: [`${last7Days[0][0]}`, `${last7Days[1][0]}`, `${last7Days[2][0]}`, `${last7Days[3][0]}`, `${last7Days[4][0]}`, `${last7Days[5][0]}`, `${last7Days[6][0]}`, `${last7Days[7][0]}`, `${last7Days[8][0]}`, `${last7Days[9][0]}`, `${last7Days[10][0]}`, `${last7Days[11][0]}`, `${last7Days[12][0]}`, `${last7Days[13][0]}`],
+        labels: [`${last7Days[1][0]}`, `${last7Days[2][0]}`, `${last7Days[3][0]}`, `${last7Days[4][0]}`, `${last7Days[5][0]}`, `${last7Days[6][0]}`, `${last7Days[7][0]}`, `${last7Days[8][0]}`, `${last7Days[9][0]}`, `${last7Days[10][0]}`, `${last7Days[11][0]}`, `${last7Days[12][0]}`, `${last7Days[13][0]}`, `${last7Days[14][0]}`],
         datasets: [{
-          label: "Deaths",
+          label: "Deaths per day",
           backgroundColor: "rgba(240,50,50,0.85)",
           borderColor: `${this.props.darkMode ? "rgba(255,255,255,1)" : "rgba(0,0,0,1)"}`,
           borderWidth: 2,
           hoverBackgroundColor: "rgba(240,50,50,1)",
-          data: [`${last7Days[0][1]}`, `${last7Days[1][1]}`, `${last7Days[2][1]}`, `${last7Days[3][1]}`, `${last7Days[4][1]}`, `${last7Days[5][1]}`, `${last7Days[6][1]}`, `${last7Days[7][1]}`, `${last7Days[8][1]}`, `${last7Days[9][1]}`, `${last7Days[10][1]}`, `${last7Days[11][1]}`, `${last7Days[12][1]}`, `${last7Days[13][1]}`],
+          data: [deathsPerDayArr[1], deathsPerDayArr[2], deathsPerDayArr[3], deathsPerDayArr[4], deathsPerDayArr[5], deathsPerDayArr[6], deathsPerDayArr[7], deathsPerDayArr[8], deathsPerDayArr[9], deathsPerDayArr[10], deathsPerDayArr[11], deathsPerDayArr[12], deathsPerDayArr[13], deathsPerDayArr[14]],
         }]
       };
 
@@ -95,17 +103,25 @@ class SingleChart extends Component {
         return [String(key), historicalDataObj[key]];
       });
 
-      const last7Days = historicalDataArray.slice(-14)
+      const last7Days = historicalDataArray.slice(-15)
+      let casesPerDay = 0;
+      const casesPerDayArr = [];
+
+      last7Days.forEach((day) => {
+        let pair = day[1] - casesPerDay;
+        casesPerDayArr.push(pair)
+        casesPerDay = day[1];
+      })
 
       const data = {
-        labels: [`${last7Days[0][0]}`, `${last7Days[1][0]}`, `${last7Days[2][0]}`, `${last7Days[3][0]}`, `${last7Days[4][0]}`, `${last7Days[5][0]}`, `${last7Days[6][0]}`, `${last7Days[7][0]}`, `${last7Days[8][0]}`, `${last7Days[9][0]}`, `${last7Days[10][0]}`, `${last7Days[11][0]}`, `${last7Days[12][0]}`, `${last7Days[13][0]}`],
+        labels: [`${last7Days[1][0]}`, `${last7Days[2][0]}`, `${last7Days[3][0]}`, `${last7Days[4][0]}`, `${last7Days[5][0]}`, `${last7Days[6][0]}`, `${last7Days[7][0]}`, `${last7Days[8][0]}`, `${last7Days[9][0]}`, `${last7Days[10][0]}`, `${last7Days[11][0]}`, `${last7Days[12][0]}`, `${last7Days[13][0]}`, `${last7Days[14][0]}`],
         datasets: [{
-          label: "Cases",
+          label: "Cases per day",
           backgroundColor: "rgba(231, 94, 44, 0.85)",
           borderColor: `${this.props.darkMode ? "rgba(255,255,255,1)" : "rgba(0,0,0,1)"}`,
           borderWidth: 2,
           hoverBackgroundColor: "rgba(231, 94, 44,1)",
-          data: [`${last7Days[0][1]}`, `${last7Days[1][1]}`, `${last7Days[2][1]}`, `${last7Days[3][1]}`, `${last7Days[4][1]}`, `${last7Days[5][1]}`, `${last7Days[6][1]}`, `${last7Days[7][1]}`, `${last7Days[8][1]}`, `${last7Days[9][1]}`, `${last7Days[10][1]}`, `${last7Days[11][1]}`, `${last7Days[12][1]}`, `${last7Days[13][1]}`],
+          data: [casesPerDayArr[1], casesPerDayArr[2], casesPerDayArr[3], casesPerDayArr[4], casesPerDayArr[5], casesPerDayArr[6], casesPerDayArr[7], casesPerDayArr[8], casesPerDayArr[9], casesPerDayArr[10], casesPerDayArr[11], casesPerDayArr[12], casesPerDayArr[13], casesPerDayArr[14]],
         }]
       };
 
@@ -142,17 +158,25 @@ class SingleChart extends Component {
         return [String(key), historicalDataObj[key]];
       });
 
-      const last7Days = historicalDataArray.slice(-14)
+      const last7Days = historicalDataArray.slice(-15)
+      let recoPerDay = 0;
+      const recoPerDayArr = [];
+
+      last7Days.forEach((day) => {
+        let pair = day[1] - recoPerDay;
+        recoPerDayArr.push(pair)
+        recoPerDay = day[1];
+      })
 
       const data = {
-        labels: [`${last7Days[0][0]}`, `${last7Days[1][0]}`, `${last7Days[2][0]}`, `${last7Days[3][0]}`, `${last7Days[4][0]}`, `${last7Days[5][0]}`, `${last7Days[6][0]}`, `${last7Days[7][0]}`, `${last7Days[8][0]}`, `${last7Days[9][0]}`, `${last7Days[10][0]}`, `${last7Days[11][0]}`, `${last7Days[12][0]}`, `${last7Days[13][0]}`],
+        labels: [`${last7Days[1][0]}`, `${last7Days[2][0]}`, `${last7Days[3][0]}`, `${last7Days[4][0]}`, `${last7Days[5][0]}`, `${last7Days[6][0]}`, `${last7Days[7][0]}`, `${last7Days[8][0]}`, `${last7Days[9][0]}`, `${last7Days[10][0]}`, `${last7Days[11][0]}`, `${last7Days[12][0]}`, `${last7Days[13][0]}`, `${last7Days[14][0]}`],
         datasets: [{
-          label: "Cases",
+          label: "New Recovered",
           backgroundColor: "rgba(44, 180, 44, 0.85)",
           borderColor: `${this.props.darkMode ? "rgba(255,255,255,1)" : "rgba(0,0,0,1)"}`,
           borderWidth: 2,
           hoverBackgroundColor: "rgba(44, 180, 44, 1)",
-          data: [`${last7Days[0][1]}`, `${last7Days[1][1]}`, `${last7Days[2][1]}`, `${last7Days[3][1]}`, `${last7Days[4][1]}`, `${last7Days[5][1]}`, `${last7Days[6][1]}`, `${last7Days[7][1]}`, `${last7Days[8][1]}`, `${last7Days[9][1]}`, `${last7Days[10][1]}`, `${last7Days[11][1]}`, `${last7Days[12][1]}`, `${last7Days[13][1]}`],
+          data: [recoPerDayArr[1], recoPerDayArr[2], recoPerDayArr[3], recoPerDayArr[4], recoPerDayArr[5], recoPerDayArr[6], recoPerDayArr[7], recoPerDayArr[8], recoPerDayArr[9], recoPerDayArr[10], recoPerDayArr[11], recoPerDayArr[12], recoPerDayArr[13], recoPerDayArr[14]],
         }]
       };
 

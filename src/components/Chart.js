@@ -33,7 +33,7 @@ class Chart extends Component {
 
     return (
       <div className={this.state.activeChart ? "chart chart--active" : "chart"}>
-        <h1 className={this.props.darkMode ? "title title--darkMode" : "title"} >covid-19 coronavirus <span>Charts</span></h1>
+        <h1 className={this.props.darkMode ? "title title--darkMode" : "title"} >covid-19 coronavirus <span className='chart__span'>Charts 14 day back</span></h1>
         <SingleChart darkMode={this.props.darkMode} />
       </div>
     )
