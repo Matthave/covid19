@@ -25,6 +25,28 @@ body {
   padding-left: 60px;
 }
 
+.cover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-image: url("../IMG/virus192.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 999;
+  -webkit-transition: opacity 0.8s, z-index 0.5s 1s linear;
+  transition: opacity 0.8s, z-index 0.5s 1s linear;
+}
+
+.cover--hide {
+  opacity: 0;
+  z-index: -999;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }

@@ -23,6 +23,7 @@ class App extends React.Component {
     darkMode: false,
     valueInput: '',
     sort: 'confirmedCases',
+    coverVisibility: true,
   }
 
   dayCases = 0;
@@ -31,6 +32,11 @@ class App extends React.Component {
   critical = 0;
 
   componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        coverVisibility: false,
+      })
+    }, 500);
     fetch("https://corona.lmao.ninja/all")
       .then(res => {
         if (res.ok) {
@@ -116,7 +122,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, darkMode, sort } = this.state;
+    const { countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, darkMode, sort, coverVisibility } = this.state;
 
     const countriesArr = [...countries];
 
@@ -210,6 +216,7 @@ class App extends React.Component {
             <Route path='/chart' render={() => <Chart darkMode={darkMode} />}></Route>
             <Route path='/poland' render={() => <Poland darkMode={darkMode} />}></Route>
           </Switch>
+          <div className={coverVisibility ? "cover" : "cover cover--hide"}></div>
         </div>
       </HashRouter>
     );
