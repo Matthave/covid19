@@ -22,7 +22,7 @@ class App extends React.Component {
     countries: '',
     darkMode: false,
     valueInput: '',
-    sort: false,
+    sort: 'confirmedCases',
   }
 
   dayCases = 0;
@@ -108,21 +108,36 @@ class App extends React.Component {
     })
   }
 
-  clickHandleSort = () => {
+  clickHandleSort = (sortBy) => {
+    console.log(sortBy)
     this.setState({
-      sort: !this.state.sort,
+      sort: sortBy,
     })
   }
 
   render() {
-    const { countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, darkMode } = this.state;
+    const { countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, darkMode, sort } = this.state;
 
     const countriesArr = [...countries];
 
-    if (this.state.sort) {
+    if (sort === 'deaths') {
       countriesArr.sort(function (a, b) { return b.deaths - a.deaths })
-    } else {
+    } else if (sort === 'confirmedCases') {
       countriesArr.sort(function (a, b) { return b.cases - a.cases })
+    } else if (sort === 'newCases') {
+      countriesArr.sort(function (a, b) { return b.todayCases - a.todayCases })
+    } else if (sort === 'newDeaths') {
+      countriesArr.sort(function (a, b) { return b.todayDeaths - a.todayDeaths })
+    } else if (sort === 'recovered') {
+      countriesArr.sort(function (a, b) { return b.recovered - a.recovered })
+    } else if (sort === 'active') {
+      countriesArr.sort(function (a, b) { return b.active - a.active })
+    } else if (sort === 'critical') {
+      countriesArr.sort(function (a, b) { return b.critical - a.critical })
+    } else if (sort === 'casesPerM') {
+      countriesArr.sort(function (a, b) { return b.casesPerOneMillion - a.casesPerOneMillion })
+    } else if (sort === 'deathsPerM') {
+      countriesArr.sort(function (a, b) { return b.deathsPerOneMillion - a.deathsPerOneMillion })
     }
 
 

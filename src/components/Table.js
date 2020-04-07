@@ -33,15 +33,15 @@ class Table extends React.Component {
           <thead className={darkMode ? "thead thead--darkMode" : "thead"}>
             <tr className='thead__tr'>
               <th className='thead__th thead__thCountry'>Country</th>
-              <th className='thead__th' onClick={clickHandleSort}>Confirmed Cases<i class="fas fa-exchange-alt"></i></th>
-              <th className='thead__th'>New Cases<i class="fas fa-exchange-alt"></i></th>
-              <th className='thead__th' onClick={clickHandleSort}>Total Deaths<i class="fas fa-exchange-alt"></i></th>
-              <th className='thead__th'>New Deaths<i class="fas fa-exchange-alt"></i></th>
-              <th className='thead__th'>Total Revocered<i class="fas fa-exchange-alt"></i></th>
-              <th className='thead__th'>Active Cases<i class="fas fa-exchange-alt"></i></th>
-              <th className='thead__th'>Critical<i class="fas fa-exchange-alt"></i></th>
-              <th className='thead__th'>Total Cases/ 1M</th>
-              <th className='thead__th'>Deaths/ 1M</th>
+              <th className='thead__th' onClick={() => clickHandleSort('confirmedCases')}>Confirmed Cases<i className="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={() => clickHandleSort('newCases')}>New Cases<i className="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={() => clickHandleSort('deaths')}>Total Deaths<i className="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={() => clickHandleSort('newDeaths')}>New Deaths<i className="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={() => clickHandleSort('recovered')}>Total Revocered<i className="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={() => clickHandleSort('active')}>Active Cases<i className="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={() => clickHandleSort('critical')}>Critical<i className="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={() => clickHandleSort('casesPerM')}>Total Cases/ 1M<i className="fas fa-exchange-alt"></i></th>
+              <th className='thead__th' onClick={() => clickHandleSort('deathsPerM')}>Deaths/ 1M<i className="fas fa-exchange-alt"></i></th>
               <th className='thead__th'>Death Rate</th>
             </tr>
           </thead>
