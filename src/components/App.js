@@ -12,6 +12,7 @@ import '../css/style.css';
 class App extends React.Component {
 
   state = {
+    updated: '',
     confirmed: '',
     recovered: '',
     deaths: '',
@@ -30,6 +31,7 @@ class App extends React.Component {
   dayDeaths = 0;
   active = 0;
   critical = 0;
+  sortFlag = true;
 
   componentDidMount() {
     setTimeout(() => {
@@ -47,6 +49,7 @@ class App extends React.Component {
       })
       .then(data => {
         this.setState({
+          updated: data.updated,
           confirmed: data.cases,
           recovered: data.recovered,
           deaths: data.deaths,
@@ -115,35 +118,95 @@ class App extends React.Component {
   }
 
   clickHandleSort = (sortBy) => {
-    console.log(sortBy)
     this.setState({
       sort: sortBy,
     })
+    this.sortFlag = !this.sortFlag
   }
 
   render() {
-    const { countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, darkMode, sort, coverVisibility } = this.state;
-
+    const { updated, countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, darkMode, sort, coverVisibility } = this.state;
     const countriesArr = [...countries];
 
+
     if (sort === 'deaths') {
-      countriesArr.sort(function (a, b) { return b.deaths - a.deaths })
-    } else if (sort === 'confirmedCases') {
-      countriesArr.sort(function (a, b) { return b.cases - a.cases })
-    } else if (sort === 'newCases') {
-      countriesArr.sort(function (a, b) { return b.todayCases - a.todayCases })
-    } else if (sort === 'newDeaths') {
-      countriesArr.sort(function (a, b) { return b.todayDeaths - a.todayDeaths })
-    } else if (sort === 'recovered') {
-      countriesArr.sort(function (a, b) { return b.recovered - a.recovered })
-    } else if (sort === 'active') {
-      countriesArr.sort(function (a, b) { return b.active - a.active })
-    } else if (sort === 'critical') {
-      countriesArr.sort(function (a, b) { return b.critical - a.critical })
-    } else if (sort === 'casesPerM') {
-      countriesArr.sort(function (a, b) { return b.casesPerOneMillion - a.casesPerOneMillion })
-    } else if (sort === 'deathsPerM') {
-      countriesArr.sort(function (a, b) { return b.deathsPerOneMillion - a.deathsPerOneMillion })
+      if (sort === 'deaths' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.deaths - a.deaths })
+      } else if (sort === 'deaths' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.deaths - b.deaths })
+      }
+    }
+
+    if (sort === 'confirmedCases') {
+      if (sort === 'confirmedCases' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.cases - a.cases })
+      } else if (sort === 'confirmedCases' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.cases - b.cases })
+      }
+    }
+
+    if (sort === 'newCases') {
+      if (sort === 'newCases' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.todayCases - a.todayCases })
+      } else if (sort === 'newCases' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.todayCases - b.todayCases })
+      }
+    }
+
+    if (sort === 'newDeaths') {
+      if (sort === 'newDeaths' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.todayDeaths - a.todayDeaths })
+      } else if (sort === 'newDeaths' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.todayDeaths - b.todayDeaths })
+      }
+    }
+
+    if (sort === 'recovered') {
+      if (sort === 'recovered' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.recovered - a.recovered })
+      } else if (sort === 'recovered' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.recovered - b.recovered })
+      }
+    }
+
+    if (sort === 'active') {
+      if (sort === 'active' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.active - a.active })
+      } else if (sort === 'active' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.active - b.active })
+      }
+    }
+
+    if (sort === 'critical') {
+      if (sort === 'critical' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.critical - a.critical })
+      } else if (sort === 'critical' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.critical - b.critical })
+      }
+    }
+
+    if (sort === 'casesPerM') {
+      if (sort === 'casesPerM' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.casesPerOneMillion - a.casesPerOneMillion })
+      } else if (sort === 'casesPerM' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.casesPerOneMillion - b.casesPerOneMillion })
+      }
+    }
+
+    if (sort === 'deathsPerM') {
+      if (sort === 'deathsPerM' && this.sortFlag) {
+        countriesArr.sort(function (a, b) { return b.deathsPerOneMillion - a.deathsPerOneMillion })
+      } else if (sort === 'deathsPerM' && !this.sortFlag) {
+        countriesArr.sort(function (a, b) { return a.deathsPerOneMillion - b.deathsPerOneMillion })
+      }
+    }
+
+    if (sort === 'country') {
+      if (sort === 'country' && this.sortFlag) {
+        countriesArr.reverse()
+      } else if (sort === 'country' && !this.sortFlag) {
+        countriesArr.sort()
+      }
     }
 
 
@@ -175,6 +238,7 @@ class App extends React.Component {
           <Navigation darkMode={darkMode} toggleDarkMode={this.toggleDarkMode} />
           <Switch>
             <Route exact path='/' render={() => <Global
+              updated={updated}
               confirmed={confirmed}
               deaths={deaths}
               recovered={recovered}

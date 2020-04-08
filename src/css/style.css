@@ -225,6 +225,31 @@ body {
   margin: 20px 0px;
 }
 
+.global__footer {
+  text-align: center;
+  color: #333;
+  font-size: 1rem;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+@media (min-width: 640px) {
+  .global__footer {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .global__footer {
+    font-size: 1.4rem;
+  }
+}
+
+.global__footer--darkMode {
+  color: #eee;
+}
+
 .global__confirmed {
   color: #777;
 }
@@ -281,7 +306,7 @@ body {
 }
 
 .table--darkMode {
-  background-color: #151515;
+  background-color: #181818;
 }
 
 .table__span {
@@ -315,7 +340,7 @@ body {
 }
 
 .table__input--darkMode {
-  background-color: #151515;
+  background-color: #181818;
   border: 1px solid #444;
   color: #fff;
 }
@@ -335,12 +360,11 @@ body {
   font-size: 1.3rem;
   font-family: 'Lexend Peta', sans-serif;
   height: 85px;
-  vertical-align: initial !important;
 }
 
 @media (min-width: 1024px) {
   .thead__th {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -438,7 +462,15 @@ th {
 
 .fas {
   display: block;
-  margin: 3px  0px;
+  margin: 5px  0px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+@media (min-width: 1024px) {
+  .thead__th:hover > .fas {
+    color: #c33;
+  }
 }
 
 .nav {
@@ -471,6 +503,7 @@ th {
           justify-content: space-evenly;
   height: 100%;
   list-style: none;
+  margin: 0 auto;
 }
 
 .nav__li {
@@ -510,8 +543,6 @@ th {
   width: 40px;
   height: 40px;
   padding: 3px;
-  -webkit-transform: translateY(35px);
-          transform: translateY(35px);
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   border-radius: 50%;
@@ -528,11 +559,6 @@ th {
     -webkit-box-shadow: 0px 0px 2px 75px rgba(0, 0, 0, 0.55);
             box-shadow: 0px 0px 2px 75px rgba(0, 0, 0, 0.55);
   }
-}
-
-.moon--darkMode {
-  -webkit-transform: translateY(0px);
-          transform: translateY(0px);
 }
 
 @media (min-width: 1024px) {
@@ -751,11 +777,8 @@ th {
 }
 
 .temporary {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
 }
 
 .poland {
@@ -784,6 +807,23 @@ th {
 
 .chart--active {
   opacity: 1;
+}
+
+.chart form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.chart input {
+  display: block;
+  margin: 3px auto;
 }
 
 .chart__input {
@@ -817,37 +857,30 @@ th {
 }
 
 .chart__title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translateY(80px);
+          transform: translateY(80px);
 }
 
 .chart__radio {
+  -ms-flex-preferred-size: 60px;
+      flex-basis: 60px;
   text-align: center;
   margin: 5px 10px;
-  font-size: 15px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .chart__radio {
+    -ms-flex-preferred-size: 80px;
+        flex-basis: 80px;
+    font-size: 2rem;
+    margin: 5px 15px;
+  }
 }
 
 .chart__radio--darkMode {
   color: #fff;
-}
-
-.chart__radio input {
-  margin-right: 5px;
-}
-
-.chart form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  text-align: center;
-  max-width: 150px;
-  margin: 10px auto;
 }
 
 .chart__span {
@@ -861,5 +894,54 @@ th {
   min-height: 400px;
   min-width: 230px;
   margin-bottom: 50px;
+}
+
+.canvas {
+  width: 240px !important;
+  height: 400px !important;
+}
+
+@media (min-width: 380px) {
+  .canvas {
+    width: 300px !important;
+  }
+}
+
+@media (min-width: 460px) {
+  .canvas {
+    width: 360px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .canvas {
+    width: 540px !important;
+  }
+}
+
+@media (min-width: 800px) {
+  .canvas {
+    width: 680px !important;
+    height: 425px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .canvas {
+    width: 900px !important;
+    height: 450px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .canvas {
+    width: 1100px !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .canvas {
+    width: 1200px !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

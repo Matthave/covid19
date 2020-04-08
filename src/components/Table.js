@@ -32,7 +32,7 @@ class Table extends React.Component {
         <table className={darkMode ? "table table--darkMode" : "table"}>
           <thead className={darkMode ? "thead thead--darkMode" : "thead"}>
             <tr className='thead__tr'>
-              <th className='thead__th thead__thCountry'>Country</th>
+              <th className='thead__th thead__thCountry' onClick={() => clickHandleSort('country')}>Country<i className="fas fa-exchange-alt"></i></th>
               <th className='thead__th' onClick={() => clickHandleSort('confirmedCases')}>Confirmed Cases<i className="fas fa-exchange-alt"></i></th>
               <th className='thead__th' onClick={() => clickHandleSort('newCases')}>New Cases<i className="fas fa-exchange-alt"></i></th>
               <th className='thead__th' onClick={() => clickHandleSort('deaths')}>Total Deaths<i className="fas fa-exchange-alt"></i></th>

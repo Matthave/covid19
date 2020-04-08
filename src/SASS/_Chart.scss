@@ -7,6 +7,17 @@
     &--active{
         opacity: 1;
     }
+    form{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width:100%;
+        margin:10px auto;
+    }
+    input{
+        display: block;
+        margin:3px auto;
+    }
     &__input{
         @include input;
         @include darkModeTransition;
@@ -17,29 +28,22 @@
         }
     }
     &__title{
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
+    transform: translateY(80px);
     }
     &__radio{
+        flex-basis: 60px;
         text-align: center;
         margin:5px 10px;
-        font-size: 15px;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        @include mq(large){
+            flex-basis: 80px;
+            font-size: 2rem;
+            margin: 5px 15px;
+        }
         &--darkMode{
             color:#fff;
         }
-        input{
-        margin-right: 5px;
-        
-        }
-    }
-    form{
-        display: flex;
-        justify-content: space-evenly;
-        text-align: center;
-        max-width: 150px;
-        margin:10px auto;
     }
     &__span{
         display: block;
@@ -53,4 +57,32 @@
     min-height: 400px;
     min-width: 230px;
     margin-bottom: 50px;
+  }
+
+  .canvas{
+    width:240px !important;
+    height: 400px !important;
+    @include mq(xxsmall){
+        width:300px !important;
+    }
+    @include mq(xsmall){
+        width:360px !important;
+    }
+    @include mq(small){
+        width:540px !important;
+    }  
+    @include mq(medium){
+        width:680px !important;
+        height: 425px !important;
+    }
+    @include mq(large){
+        width:900px !important;
+        height: 450px !important;
+    }
+    @include mq(xlarge){
+        width:1100px !important;
+    }
+    @include mq(xxlarge){
+        width:1200px !important;
+    }  
   }

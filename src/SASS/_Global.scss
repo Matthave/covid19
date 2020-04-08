@@ -93,6 +93,22 @@
         margin:20px 0px;
         
     }
+    &__footer{
+        text-align: center;
+        color: #333;
+        font-size: 1rem;
+        @include darkModeTransition;
+        @include mq(small){
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        }
+        @include mq(large){
+        font-size: 1.4rem;
+        }
+        &--darkMode{
+          color:#eee;
+        }
+    }
 }
 
 .global{

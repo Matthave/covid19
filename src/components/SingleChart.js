@@ -234,7 +234,7 @@ class SingleChart extends Component {
 
     const createCanvas = countryNew.map((canv) => (
       <div key={canv.country} className="container">
-        <canvas id={canv.country}></canvas>
+        <canvas id={canv.country} className='canvas'></canvas>
       </div>
     ))
 
@@ -256,7 +256,7 @@ class SingleChart extends Component {
             </label>
         </form>
 
-        {countryNew.length <= 70 ? createCanvas : <h2 className={darkMode ? "title chart__title title--darkMode" : "title chart__title"}>Please write name of any country...</h2>}
+        {countryNew.length <= 90 ? createCanvas : <h2 className={darkMode ? "title chart__title title--darkMode" : "title chart__title"}>Please write name of any country...</h2>}
       </>
     )
   }
