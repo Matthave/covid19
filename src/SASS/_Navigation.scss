@@ -6,6 +6,7 @@
     height: 100vh;
     background-color: #fff;
     box-shadow: 0px 0px 4px 1px #000;
+    z-index: 998;
     @include darkModeTransition;
     &--darkMode{
         background-color: #181818;

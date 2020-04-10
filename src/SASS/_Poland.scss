@@ -9,7 +9,7 @@ min-height: 100vh;
 
 .poland{
     opacity: 0;
-    transition: 0.5s linear;
+    @include opacityTransition;
     &--active{
         opacity: 1;
     }

@@ -1,6 +1,6 @@
 .global{
     opacity: 0;
-    transition: 0.5s linear;
+     @include opacityTransition;
     &--active{
         opacity: 1;
     }
@@ -76,6 +76,7 @@
     &__span{
         font-size: 2rem;
         color:#000;
+        @include darkModeTransition;
         @include mq(xsmall){
             font-size: 2.3rem;
         }
@@ -94,9 +95,15 @@
         
     }
     &__footer{
+        position: -webkit-sticky;
+        position: sticky;
+        bottom:0;
         text-align: center;
         color: #333;
         font-size: 1rem;
+        background-color: #fff;
+        width:110%;
+        padding:10px;
         @include darkModeTransition;
         @include mq(small){
         font-size: 1.2rem;
@@ -107,6 +114,7 @@
         }
         &--darkMode{
           color:#eee;
+          background-color: #000;
         }
     }
 }

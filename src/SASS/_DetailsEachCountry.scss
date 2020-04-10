@@ -1,6 +1,6 @@
 .detailsCountry{
     opacity: 0;
-    transition: 0.5s linear;
+    @include opacityTransition;
     overflow-x: hidden;
     &--active{
         opacity: 1;
