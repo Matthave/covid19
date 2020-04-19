@@ -13,6 +13,8 @@ class DetailsCountry extends React.Component {
                 activeDetailsCountry: true
             })
         }, 200);
+
+        window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
     componentWillUnmount() {

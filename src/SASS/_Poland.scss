@@ -13,4 +13,129 @@ min-height: 100vh;
     &--active{
         opacity: 1;
     }
+    &__span{
+        @include span;
+    }
+}
+
+.polandWrap{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.statisticWrap{
+    @include mq(large){
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+.province{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width:90%;
+    max-width: 900px;
+    min-height: 150px;
+    padding: 10px 0px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 4px 1px #000;
+    text-align: center;
+    @include darkModeTransition;
+    &--darkMode{
+        background-color: #181818;
+        box-shadow: 0px 0px 4px 1px #555;
+    }
+    @include mq(large){
+        width:45%;
+    }
+    &__name{
+        width:100%;
+        height: 35px;
+        line-height: 35px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background-color: #111;
+        color:#eee;
+        font-family: 'Krona One', sans-serif;
+        font-size: 1.2rem;
+        @include darkModeTransition;
+        &--darkMode{
+            background-color: #000;
+        }
+        @include mq(medium){
+            font-size: 1.5rem;
+        }
+    }
+    &__confirmed{
+        padding:2.5px 0px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        color:#555;
+        font-family: 'Krona One', sans-serif;
+        @include mq(medium){
+            font-size: 1.4rem;
+        }
+    }
+    &__deaths{
+        padding:2.5px 0px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        color:#a00;
+        font-family: 'Krona One', sans-serif;
+        @include mq(medium){
+            font-size: 1.4rem;
+        }
+    }
+    &__span{
+        display: block;
+        margin-top: 7.5px;
+        font-size: 1.5rem;
+        color:#000;
+        @include darkModeTransition;
+        &--darkMode{
+            color:#eee;
+        }
+        @include mq(medium){
+            font-size: 2rem;
+        }
+        
+    }
+}
+
+
+.canvasPoland{
+        width:240px !important;
+        height: 400px !important;
+        @include mq(xxsmall){
+            width:300px !important;
+        }
+        @include mq(xsmall){
+            width:360px !important;
+        }
+        @include mq(small){
+            width:540px !important;
+        }  
+        @include mq(medium){
+            width:680px !important;
+            height: 425px !important;
+        }
+        @include mq(large){
+            width:900px !important;
+            height: 450px !important;
+        }
+        @include mq(xlarge){
+            width:1100px !important;
+        }
+        @include mq(xxlarge){
+            width:1200px !important;
+        }  
 }

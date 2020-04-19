@@ -21,6 +21,7 @@ class App extends React.Component {
     active: '',
     critical: '',
     countries: '',
+    polandStats: '',
     darkMode: false,
     valueInput: '',
     sort: 'confirmedCases',
@@ -39,7 +40,7 @@ class App extends React.Component {
         coverVisibility: false,
       })
     }, 500);
-    fetch("https://corona.lmao.ninja/all")
+    fetch("https://corona.lmao.ninja/v2/all")
       .then(res => {
         if (res.ok) {
           return res.json()
@@ -63,7 +64,7 @@ class App extends React.Component {
         console.log(err);
       });
 
-    fetch("https://corona.lmao.ninja/countries?sort=country", {
+    fetch("https://corona.lmao.ninja/v2/countries", {
       "method": "GET",
     })
       .then(res => res.json())
@@ -77,6 +78,12 @@ class App extends React.Component {
       .catch(err => {
         console.log(err);
       });
+
+    fetch("https://services1.arcgis.com/YmCK8KfESHdxUQgm/arcgis/rest/services/wojewodztwa_corona_widok/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=SUM_Confirmed%20desc&resultOffset=0&resultRecordCount=25&cacheHint=true")
+      .then(res => res.json())
+      .then(data => this.setState({
+        polandStats: data.features
+      }))
   }
 
   todayCases = (data) => {
@@ -278,7 +285,10 @@ class App extends React.Component {
             >
             </Route>
             <Route path='/chart' render={() => <Chart darkMode={darkMode} />}></Route>
-            <Route path='/poland' render={() => <Poland darkMode={darkMode} />}></Route>
+            <Route path='/poland' render={() => <Poland
+              darkMode={darkMode}
+              polandStats={this.state.polandStats}
+            />}></Route>
           </Switch>
           <div className={coverVisibility ? "cover" : "cover cover--hide"}></div>
         </div>

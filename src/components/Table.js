@@ -12,6 +12,8 @@ class Table extends React.Component {
         activeTable: true,
       })
     }, 200);
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
   componentWillUnmount() {

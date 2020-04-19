@@ -11,6 +11,8 @@ class Global extends React.Component {
         activeGlobal: true
       })
     }, 200);
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
   render() {
