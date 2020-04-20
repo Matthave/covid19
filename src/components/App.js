@@ -21,6 +21,8 @@ class App extends React.Component {
     active: '',
     critical: '',
     countries: '',
+    tests: '',
+    testsPerMillion: '',
     polandStats: '',
     darkMode: false,
     valueInput: '',
@@ -58,6 +60,8 @@ class App extends React.Component {
           todayDeaths: data.todayDeaths,
           active: data.active,
           critical: data.critical,
+          tests: data.tests,
+          testsPerMillion: data.testsPerOneMillion,
         })
       })
       .catch(err => {
@@ -132,7 +136,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { updated, countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, darkMode, sort, coverVisibility } = this.state;
+    const { updated, countries, valueInput, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, tests, testsPerMillion, darkMode, sort, coverVisibility } = this.state;
     const countriesArr = [...countries];
 
 
@@ -243,7 +247,7 @@ class App extends React.Component {
       <HashRouter>
         <div className="App">
           <Navigation darkMode={darkMode} toggleDarkMode={this.toggleDarkMode} />
-          <Switch>
+          {this.state.countries ? <Switch>
             <Route exact path='/' render={() => <Global
               updated={updated}
               confirmed={confirmed}
@@ -253,6 +257,8 @@ class App extends React.Component {
               todayDeaths={todayDeaths}
               active={active}
               critical={critical}
+              tests={tests}
+              testsPerMillion={testsPerMillion}
               darkMode={darkMode}
             />}>
             </Route>
@@ -288,8 +294,10 @@ class App extends React.Component {
             <Route path='/poland' render={() => <Poland
               darkMode={darkMode}
               polandStats={this.state.polandStats}
+              countries={countries}
             />}></Route>
-          </Switch>
+          </Switch> : 'Loading'}
+
           <div className={coverVisibility ? "cover" : "cover cover--hide"}></div>
         </div>
       </HashRouter>

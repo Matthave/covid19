@@ -16,7 +16,7 @@ class Global extends React.Component {
   }
 
   render() {
-    const { darkMode, updated, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical } = this.props;
+    const { darkMode, updated, confirmed, deaths, recovered, todayCases, todayDeaths, active, critical, tests, testsPerMillion } = this.props;
     const closedCases = confirmed - active;
     const currentUpdate = (new Date(updated)).toString();
 
@@ -55,6 +55,14 @@ class Global extends React.Component {
           <section className={darkMode ? "global__section global__section--darkMode  " : "global__section"}>
             <h2 className={darkMode ? "global__title global__title--darkMode" : "global__title"}>CoronaVirus Recovered</h2>
             <h2 className="global__result global__recovered">{recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}<span className={darkMode ? 'global__span global__span--darkMode' : 'global__span'}>({((recovered / closedCases) * 100).toFixed(2)}%)</span></h2>
+          </section>
+
+          <section className={darkMode ? "global__section global__section--darkMode  " : "global__section"}>
+            <h2 className={darkMode ? "global__title global__title--darkMode" : "global__title"}>CoronaVirus Tests Performed</h2>
+            <h2 className="global__result global__tests">{tests.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h2>
+
+            <h2 className={darkMode ? "global__title global__title--darkMode" : "global__title"}>CoronaVirus Tests Performed / 1 million</h2>
+            <h2 className="global__result global__tests">{Math.floor(testsPerMillion).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h2>
           </section>
 
 
