@@ -5,7 +5,7 @@ import Global from './Global';
 import DetailsCountry from './DetailsCountry';
 import Table from './Table';
 import Chart from './Chart';
-import Poland from './Poland';
+import Poland from './Poland/Poland';
 import { Route, Switch, HashRouter, } from 'react-router-dom';
 import '../css/style.css';
 
