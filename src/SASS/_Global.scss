@@ -1,142 +1,140 @@
-.global{
-    opacity: 0;
-     @include opacityTransition;
-    &--active{
-        opacity: 1;
+.global {
+  opacity: 0;
+  @include opacityTransition;
+  &--active {
+    opacity: 1;
+  }
+  &__sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 75vh;
+    transition: 0.2s linear;
+  }
+  &__section {
+    @include blockElement;
+    @include mq(large) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 95%;
     }
-    &__sections{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        min-height: 75vh;
-        transition: 0.2s linear;
+    @include darkModeTransition;
+    &--darkMode {
+      background-color: #181818;
+      box-shadow: 0px 0px 4px 1px #555;
     }
-    &__section{
-        @include blockElement;
-        @include mq(large){
-            flex-direction: row;
-            flex-wrap: wrap;
-            width:95%;
-        }
-        @include darkModeTransition;
-        &--darkMode{
-            background-color: #181818;
-            box-shadow: 0px 0px 4px 1px #555;
-        }
+  }
+  &__title {
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    text-align: center;
+    @include darkModeTransition;
+    &--darkMode {
+      color: #fff;
     }
-    &__title{
-        font-size: 1.8rem;
-        letter-spacing: 0.5px;
-        margin-top: 10px;
-        text-align: center;
-        @include darkModeTransition;
-        &--darkMode{
-            color:#fff;
-        }
-        @include mq(large){
-            font-size: 2rem;
-            width: 100%;
-        }
-        @include mq(xlarge){
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-        }
+    @include mq(large) {
+      font-size: 2rem;
+      width: 100%;
     }
-    &__result{
-        margin-top:10px;
-        font-size: 2.8rem;
-        letter-spacing: 2px;
-        color:#222;
-        text-align: center;
-        font-family: 'Krona One', sans-serif;
-        @include mq(xsmall){
-            font-size: 3.3rem;
-        }
-        @include mq(large){
-            font-size: 3.5rem;
-        }
-        @include mq(xlarge){
-            margin-top:15px;
-            font-size: 5rem;
-        }
+    @include mq(xlarge) {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
     }
-    span{
-       @include span;
+  }
+  &__result {
+    margin-top: 10px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #222;
+    text-align: center;
+    font-family: "Krona One", sans-serif;
+    @include mq(xsmall) {
+      font-size: 3.3rem;
     }
-    &__span{
-        font-size: 2rem;
-        color:#000;
-        @include darkModeTransition;
-        @include mq(xsmall){
-            font-size: 2.3rem;
-        }
-        @include mq(large){
-            font-size: 2.5rem;
-        }
-        @include mq(xlarge){
-            font-size: 3rem;
-        }
-        &--darkMode{
-            color:#fff;
-        }
+
+    @include mq(xlarge) {
+      margin-top: 15px;
+      font-size: 4.3rem;
     }
-    &__statsRow{
-        margin:20px 0px;
-        
+  }
+  span {
+    @include span;
+  }
+  &__span {
+    font-size: 2rem;
+    color: #000;
+    @include darkModeTransition;
+    @include mq(xsmall) {
+      font-size: 2.3rem;
     }
-    &__footer{
-        position: -webkit-sticky;
-        position: sticky;
-        bottom:5px;
-        text-align: center;
-        color: #333;
-        font-size: 1rem;
-        background-color: #fff;
-        padding:10px;
-        border-radius: 10px;
-        @include darkModeTransition;
-        @include mq(small){
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        }
-        @include mq(large){
-        font-size: 1.4rem;
-        }
-        &--darkMode{
-          color:#eee;
-          background-color: #000;
-        }
+    @include mq(large) {
+      font-size: 2.5rem;
     }
+    @include mq(xlarge) {
+      font-size: 3rem;
+    }
+    &--darkMode {
+      color: #fff;
+    }
+  }
+  &__statsRow {
+    margin: 20px 0px;
+  }
+  &__footer {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 5px;
+    text-align: center;
+    color: #333;
+    font-size: 1rem;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    @include darkModeTransition;
+    @include mq(small) {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+    @include mq(large) {
+      font-size: 1.4rem;
+    }
+    &--darkMode {
+      color: #eee;
+      background-color: #000;
+    }
+  }
 }
 
-.global{
-    &__confirmed{
-        color:#777;
-    }
-    &__deaths{
-        color:#a33;
-    }
-    &__recovered{
-        color:#383;
-    }
-    &__tests{
-        color:rgba(41, 70, 216, 0.816);
-    }
+.global {
+  &__confirmed {
+    color: #777;
+  }
+  &__deaths {
+    color: #a33;
+  }
+  &__recovered {
+    color: #383;
+  }
+  &__tests {
+    color: rgba(41, 70, 216, 0.816);
+  }
 }
 
-.activeGlobal{
-    color:#8a8a8a;
+.activeGlobal {
+  color: #8a8a8a;
 }
 
-.critical{
-    color:#d33;
+.critical {
+  color: #d33;
 }
 
-.todayCases{
-   color: rgb(231, 94, 44)
+.todayCases {
+  color: rgb(231, 94, 44);
 }
 
-.todayDeaths{
-color:#d33;
+.todayDeaths {
+  color: #d33;
 }

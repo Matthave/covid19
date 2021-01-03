@@ -41,6 +41,7 @@ min-height: 100vh;
 
 .province{
     @include blockElement;
+    justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 900px;
@@ -150,6 +151,7 @@ min-height: 100vh;
     flex-direction: column;
    &__section{
     @include blockElement;
+    justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
     margin: 25px auto;
@@ -287,6 +289,7 @@ min-height: 100vh;
 
 .currentProvince{
    @include blockElement; 
+   justify-content: space-around;
    box-shadow: none;
    margin:30px auto;
    text-align: center;
